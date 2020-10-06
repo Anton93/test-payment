@@ -1,0 +1,10 @@
+github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
+github.com/plutov/paypal v1.1.4 h1:KVs5AslqpxkptrBTINPa4xUL7xw8HsKRd5b61oXWCx8=
+github.com/plutov/paypal v2.0.5+incompatible h1:i5ma4HiHO0MUvJGHaKkL2aqOj0B19q8WoJm1jgzQjlM=
+github.com/plutov/paypal/v3 v3.0.25 h1:p4XvmewJ/VDVOD/a5k0g4l6pwwdr1zR4B3rIX0AJAco=
+github.com/plutov/paypal/v3 v3.0.25/go.mod h1:H42teFlAId2v0wGo0eIpx3ufQJKfDv+bJWk5O5v8lNI=
+github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
+github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
+github.com/stretchr/testify v1.6.0/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
+gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
+gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c/go.mod h1:K4uyk7z7BCEPqu6E+C64Yfv1cQ7kz7rIZviUmN+EgEM=
