@@ -33,6 +33,7 @@ func (g *GooglePayApi) GetServiceKey(_ context.Context) string {
 }
 
 func (g *GooglePayApi) GetButtonUrl(ctx context.Context, productIdExt string) (*model.WebPaymentButtonExtService, error) {
+	// TODO: implement
 	panic("implement me")
 }
 

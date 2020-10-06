@@ -30,10 +30,16 @@ func main() {
 
 
 
-	iapi, _ := api.NewPayService()
-	igpi, _ := gpi.NewPayService()
-	ippi, _ := ppi.NewPayService()
-	ispi, _ := spi.NewPayService()
+	//iapi, _ := api.NewPayService()
+	//igpi, _ := gpi.NewPayService()
+	//ippi, _ := ppi.NewPayService()
+	//ispi, _ := spi.NewPayService()
+
+	iapi, _ := api.NewMockPayService()
+	igpi, _ := gpi.NewMockPayService()
+	ippi, _ := ppi.NewMockPayService()
+	ispi, _ := spi.NewMockPayService()
+
 
 	paymentService,  _ := payment.Create(storage.NewMockStorage(), iapi, igpi, ippi, ispi)
 

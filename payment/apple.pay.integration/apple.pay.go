@@ -33,6 +33,7 @@ func (a *_ApplePayApi) GetServiceKey(_ context.Context) string {
 }
 
 func (a *_ApplePayApi) GetButtonUrl(ctx context.Context, productIdExt string) (*model.WebPaymentButtonExtService, error) {
+	// TODO: implement
 	panic("implement me")
 }
 

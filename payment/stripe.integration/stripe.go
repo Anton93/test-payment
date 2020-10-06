@@ -32,5 +32,6 @@ func (a *StripeApi) GetServiceKey(_ context.Context) string {
 }
 
 func (a *StripeApi) GetButtonUrl(ctx context.Context, productIdExt string) (*model.WebPaymentButtonExtService, error) {
+	// TODO: implement
 	panic("implement me")
 }
