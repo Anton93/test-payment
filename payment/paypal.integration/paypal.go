@@ -4,28 +4,41 @@ import (
 	"context"
 	"errors"
 	"github.com/Anton93/test-payment/model"
-	"github.com/plutov/paypal"
+	"github.com/kelseyhightower/envconfig"
+	"github.com/plutov/paypal/v3"
 )
 
 const PaymentServiceID = 3
 const PaymentServiceName = "paypal"
 
-type _PaypalApi struct {
-	client * paypal.Client
-}
+const PaypalConfigPrefix = "PAYMENT_PAYPAL"
 
 type PaypalConfig struct {
-
+	ClientID string `envconfig:"CLIENT_ID"`
+	Secret   string `envconfig:"SECRET"`
+	APIBase  string `envconfig:"BASE"`
 }
 
-func Create(clientID string, secret string, APIBase string) (model.ExternalServiceIntegration, error) {
+type _PaypalApi struct {
+	config PaypalConfig
+	client *paypal.Client
+}
+
+func NewPayService() (model.ExternalServiceIntegration, error) {
 	p := &_PaypalApi{}
+
+	envconfig.MustProcess(PaypalConfigPrefix, &p.config)
+
 	var err error
-	p.client, err = paypal.NewClient(clientID, secret, APIBase)
+	p.client, err = paypal.NewClient(p.config.ClientID, p.config.Secret, p.config.APIBase)
 	if err != nil {
 		return nil, err
 	}
 	return p, nil
+}
+
+func (p *_PaypalApi) GetServiceKey(_ context.Context) string {
+	return PaymentServiceName
 }
 
 func (p *_PaypalApi) GetButtonUrl(ctx context.Context, productIdExt string) (*model.WebPaymentButtonExtService, error) {
@@ -36,9 +49,9 @@ func (p *_PaypalApi) GetButtonUrl(ctx context.Context, productIdExt string) (*mo
 	// TODO: paypal client request
 	// p.clinet.
 
-	return  &model.WebPaymentButtonExtService{
-		ID:               PaymentServiceID,
-		Name:             PaymentServiceName,
+	return &model.WebPaymentButtonExtService{
+		ID:   PaymentServiceID,
+		Name: PaymentServiceName,
 		WebPaymentButton: model.WebPaymentButton{
 			Url:  "https://www.paypal.com/webapps/mpp/paypal-popup",
 			Alt:  "PayPal Logo",
@@ -46,5 +59,3 @@ func (p *_PaypalApi) GetButtonUrl(ctx context.Context, productIdExt string) (*mo
 		},
 	}, nil
 }
-
-

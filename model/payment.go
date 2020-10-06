@@ -28,5 +28,8 @@ type PaymentService interface {
 }
 
 type ExternalServiceIntegration interface {
+	GetServiceKey(ctx context.Context) string  // key for alter storage ids
+	//GetServiceID(ctx context.Context) int      // service id
+	//GetServiceName(ctx context.Context) string // service name
 	GetButtonUrl(ctx context.Context, productIdExt string) (*WebPaymentButtonExtService, error)
 }
